@@ -1,0 +1,6 @@
+[Service]
+Environment=STARTUP_WAIT=30s
+ExecStart=/home/nhudson/.local/bin/laptop-power.sh
+
+[Install]
+WantedBy=default.target
