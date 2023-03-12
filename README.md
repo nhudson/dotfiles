@@ -20,7 +20,7 @@ This is a collection of dotfiles on my laptop
 - shell theme: [p10k](https://github.com/romkatv/powerlevel10k)
 - pdf reader: [zathura](https://pwmt.org/projects/zathura/)
 - terminal file manager: [ranger](https://github.com/ranger/ranger)
-- theme: Tokyonight
+- theme: [Tokyonight](https://github.com/folke/tokyonight.nvim)
 
 ## Installation
 
