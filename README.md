@@ -20,10 +20,12 @@ This is a collection of dotfiles on my laptop
 - shell theme: [p10k](https://github.com/romkatv/powerlevel10k)
 - pdf reader: [zathura](https://pwmt.org/projects/zathura/)
 - terminal file manager: [ranger](https://github.com/ranger/ranger)
+- theme: Tokyonight
 
 ## Installation
 
-For now I just link all of the config directories to their location, and link all scripts to their location.
+For now I am just linking all of the config directories and files to their 
+location, and link all scripts to their location.
 
 ```shell
 $ for dir in `ls .config`
@@ -39,7 +41,13 @@ ln -s `pwd`/.local/bin/laptop-power.sh ~/.local/bin/laptop-power.sh
 ```shell
 ln -s `pwd`/.wallpapers ~/.wallpapers
 ln -s `pwd`/.screenlayout/ ~/.screenlayout
+ln -s `pwd`/.xinitrc ~/.xinitrc
+ln -s `pwd`/.xinitrc ~/.Xresources
 ```
+
+You can run bspwm directly from your `$HOME/.xinitrc` file, but I am running it
+with [bspwm-gnome](https://github.com/simrat39/bspwm-gnome).  Follow the install
+if you want to do the same.
 
 ## Showcase
 
