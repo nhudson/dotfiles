@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-# ----------------------- FUNCTIONS ----------------------- 
+# ----------------------- VARIABLES -----------------------
+MONITOR="eDP-1"
+HDMI="HDMI-1-0"
+
+# ----------------------- FUNCTIONS -----------------------
 
 rule() { bspc rule -a "$@" & }
 config() { bspc config "$@" & }
@@ -44,7 +48,17 @@ rule Lxappearance          state=floating
 
 # ----------------------- GENERAL CONFIG -----------------------
 
-bspc monitor -d 1 2 3 4 5 6 7 8 
+# Set desktops on the monitor
+if [[ $(xrandr -q | grep "${HDMI} connected") || $(cat /proc/acpi/button/lid/LID0/state) == "open" ]]; then
+  bspc monitor "$HDMI" -d 1 2 3 4
+  bspc monitor "$MONITOR" -d 5 6 7 8
+  bspc wm -O "$HDMI" "$MONITOR"
+#elif [[ $(xrandr -q | grep "${HDMI} connected") || $(cat /proc/acpi/button/lid/LID0/state) == "closed" ]]; then
+#  bspc monitor "$HDMI" -d 1 2 3 4 5 6 7 8
+#  bspc wm -O "$HDMI"
+else
+  bspc monitor "$MONITOR" -d 1 2 3 4 5 6 7 8
+fi
 
 config border_width             2
 config window_gap               5

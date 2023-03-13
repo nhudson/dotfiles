@@ -45,6 +45,20 @@ ln -s `pwd`/.xinitrc ~/.xinitrc
 ln -s `pwd`/.xinitrc ~/.Xresources
 ```
 
+To make sure the laptop doesn't suspend/hibernate when power is plugged in and
+lid is closed. You need to edit `/etc/systemd/logind.conf` and uncomment the
+following
+
+```shell
+HandleLidSwitchExternalPower=ignore
+```
+
+Restart `systemd-logind`
+
+```shell
+systemctl kill -s HUP systemd-logind
+```
+
 You can run bspwm directly from your `$HOME/.xinitrc` file, but I am running it
 with [bspwm-gnome](https://github.com/simrat39/bspwm-gnome).  Follow the install
 if you want to do the same.

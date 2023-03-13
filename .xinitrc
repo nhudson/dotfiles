@@ -55,6 +55,11 @@ sudo system76-power charge-thresholds --profile balanced
 # Set keyboard repeat rate
 xset r rate 300 50
 
-#xiccd &
+if [[ $(cat /proc/acpi/button/lid/LID0/state) == "open" || $(xrandr -q | grep "HDMI-1-0 connected") ]]; then
+  ~/.screenlayout/laptop-dual-home.sh
+elif [[ $(cat /proc/acpi/button/lid/LID0/state) == "open" ]]; then
+  ~/.screenlayout/laptop-only.sh
+fi
+
 #exec bspwm
 exec /usr/bin/gnome-session-bspwm
