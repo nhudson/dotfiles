@@ -33,13 +33,19 @@ super + bracket{left,right}
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
-
 # set the window state
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 super + alt + s
   bspc node -t floating
+
+# set hide/unhide
+super + alt + i
+	bspc node focused -g hidden=on
+
+super + shift + i
+	bspc node $(bspc query -N -n .hidden -d focused) -g hidden=off
 
 #MOVE/RESIZE
 
@@ -76,6 +82,6 @@ XF86AudioLowerVolume
 XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-#firefox
+# Chrome
 super + b
-	firefox
+	google-chrome-unstable
