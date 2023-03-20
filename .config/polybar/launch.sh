@@ -9,7 +9,7 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Get monitor outputs
 for m in $(polybar --list-monitors | cut -d ":" -f1); do
-  if [[ $m == "HDMI-1-0" ]]; then
+  if [[ $m == "DP-1" ]]; then
     monitor="$m"
     bar="external"
   else
