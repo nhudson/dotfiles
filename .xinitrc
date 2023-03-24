@@ -49,11 +49,14 @@ sudo system76-power charge-thresholds --profile balanced
 "$HOME/code/picom/bin/picom-trans" --experimental-backends &
 
 # Notify Daemon
-#dunst &
-/usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd &
+dunst &
+#/usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd &
 
 # Set keyboard repeat rate
 xset r rate 300 50
+
+# Set mouse acceleration
+xinput --set-prop 16 'libinput Accel Speed' -0.420788
 
 if [[ $(cat /proc/acpi/button/lid/LID0/state) == "open" || $(xrandr -q | grep "HDMI-1-0 connected") ]]; then
   ~/.screenlayout/laptop-dual-home.sh
@@ -62,4 +65,4 @@ elif [[ $(cat /proc/acpi/button/lid/LID0/state) == "open" ]]; then
 fi
 
 #exec bspwm
-exec /usr/bin/gnome-session-bspwm
+exec dbus-launch --autolaunch=$(cat /var/lib/dbus/machine-id) bspwm
