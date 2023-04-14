@@ -26,10 +26,13 @@ xsetroot -cursor_name left_ptr &
 
 xset -b
 
+nm-applet &
+
 # ----------------------- RULES -----------------------
 
 rule Firefox               desktop='^2'
 rule Slack                 desktop='^3'
+rule zoom                  desktop='^4' state=floating center=on follow=on border=off
 rule discord               desktop='^6'
 rule Transmission-gtk      desktop='^5'
 rule Gimp-2.10             desktop='^6'

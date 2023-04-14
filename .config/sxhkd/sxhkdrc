@@ -82,6 +82,6 @@ XF86AudioLowerVolume
 XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-# Chrome
+# Brave
 super + b
-	google-chrome-unstable
+	brave-browser-beta
